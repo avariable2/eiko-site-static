@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "FPA9A82F3R.com.Eiko",
+        "paths": [ "/find/*" ]
+      }
+    ]
+  }
+}
