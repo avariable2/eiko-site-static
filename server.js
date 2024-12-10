@@ -8,8 +8,8 @@ const PORT = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Route spécifique pour apple-app-site-association
-app.get('/.well-known/apple-app-site-association', (req, res) => {
-    const filePath = path.join(__dirname, 'public', '.well-known', 'apple-app-site-association');
+app.get('/apple-app-site-association', (req, res) => {
+    const filePath = path.join(__dirname, 'apple-app-site-association');
     
     fs.access(filePath, fs.constants.F_OK, (err) => {
         if (err) {
