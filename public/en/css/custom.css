@@ -1,0 +1,172 @@
+.share{
+  position: absolute;
+}
+ .logoresponsive{
+    margin-left: -12px;
+    margin-bottom: -30px;
+  }
+
+@media (max-width: 1024px) {
+
+  .container .wrap:not(.noSpaces), .container .wrap.spaceWrap,
+  .container .wrap .spaceWrap {
+    padding: calc(6% + 10px) calc(4% + 30px);
+  } 
+  .iphone-29, .iphone-28{
+    margin-top: -12px;
+  }
+   .tablette{
+    margin-top: 80px;
+  }
+}
+
+
+
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+
+  h3{
+    padding-top: 100px;
+  }
+  h1{
+    font-size: 48px;
+    text-align: center;
+  }
+  p{
+    font-size: 24px;
+    text-align: center;
+  }
+   .responsive{
+    display: none;
+  }
+  .container .wrap:not(.noSpaces), .container .wrap.spaceWrap,
+  .container .wrap .spaceWrap {
+    padding: calc(6% + 10px) calc(4% + 30px);
+  } 
+  .iphone-29, .iphone-28{
+    margin-top: -12px;
+  }
+   .tablette{
+    margin-top: 80px;
+  }
+  .hauteur{
+    margin-top: 80px;
+  }
+}
+
+
+@media screen and (min-width: 500px) and (max-width: 768px) {
+/*@media (max-width: 768px) {*/
+
+  h3{
+    padding-top: 160px;
+  }
+  h1{
+    font-size: 44px;
+    text-align: center;
+  }
+  p{
+    font-size: 24px;
+    text-align: center;
+  }
+   .responsive{
+    display: none;
+  }
+  .container .wrap:not(.noSpaces), .container .wrap.spaceWrap,
+  .container .wrap .spaceWrap {
+    padding: calc(6% + 10px) calc(4% + 30px);
+  }
+  .tablette{
+    padding-top: 40px;
+  }
+  .hauteur4{
+    margin-top: 60px;
+  }
+ .hauteur5{
+    margin-top: 30px;
+  }
+}
+
+
+@media screen and (min-width: 340px) and (max-width: 499px) {
+/*@media (max-width: 499px) {*/
+  .button{
+    font-size: 20px;
+  }
+  p{
+    font-size: 20px;
+    text-align: center;
+  }
+  h3{
+    font-size: 16px;
+    padding-top: 120px;
+  }
+  h1{
+    font-size: 44px;
+    text-align: center;
+  }
+  .h1{
+    font-size: 44px;
+    text-align: center;
+  }
+  .navigation{
+    display: none;
+  }
+  .responsive{
+    display: none;
+  }
+  .firstca{
+    display: none;
+  }
+  .container .wrap:not(.noSpaces), .container .wrap.spaceWrap,
+  .container .wrap .spaceWrap {
+    padding: calc(6% + 10px) calc(6% + 5px);
+  }
+  .logoresponsive{
+    margin-left: -18px;
+  }
+  .iphone-29, .iphone-28{
+    margin-top: 16px;
+  }
+
+}
+
+@media (max-width: 322px) {
+  .button{
+    font-size: 16px;
+  }
+  p{
+    font-size: 16px;
+    text-align: center;
+  }
+  h3{
+    font-size: 12px;
+    padding-top: 120px;
+  }
+  h1{
+    font-size: 36px;
+    text-align: center;
+  }
+  .h1{
+    font-size: 36px;
+    text-align: center;
+  }
+  .navigation{
+    display: none;
+  }
+  .responsive{
+    display: none;
+  }
+  .firstca{
+    display: none;
+  }
+  .container .wrap:not(.noSpaces), .container .wrap.spaceWrap,
+  .container .wrap .spaceWrap {
+    padding: calc(6% + 10px) calc(6% + 5px);
+  }
+
+  .iphone-29, .iphone-28{
+    margin-top: 16px;
+  }
+
+  }
+
