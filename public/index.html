@@ -4,29 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Eiko</title>
     <script>
-        // Détection de la langue du navigateur
-        const userLang = navigator.language || navigator.userLanguage;
+        // Vérifie si le chemin actuel est la racine
+        if (window.location.pathname === '/') {
+            // Détection de la langue du navigateur
+            const userLang = navigator.language || navigator.userLanguage;
 
-        // Configuration des redirections en fonction des langues
-        const langRedirects = {
-            'fr': 'fr/index.html',
-            'en': 'en/index.html',
-        };
+            // Configuration des redirections en fonction des langues
+            const langRedirects = {
+                'fr': '/fr/',
+                'en': '/en/',
+            };
 
-        // Vérifie si la langue est supportée et redirige
-        const langCode = userLang.slice(0, 2); // Garde uniquement le code 'fr', 'en', etc.
-        if (langRedirects[langCode]) {
-            window.location.href = langRedirects[langCode];
-        } else {
-            // Redirection par défaut (anglais par exemple)
-            window.location.href = 'en/index.html';
+            // Garde uniquement le code 'fr', 'en', etc.
+            const langCode = userLang.slice(0, 2).toLowerCase();
+
+            // Fonction pour vérifier si le chemin commence par un code de langue
+            const startsWithLang = (path) => {
+                return path.startsWith('/fr/') || path.startsWith('/en/');
+            };
+
+            // Fonction pour vérifier si le chemin contient des segments spécifiques
+            const hasReferralOrUser = (path) => {
+                return path.includes('/referral/') || path.includes('/user/');
+            };
+
+            // Si l'URL contient des segments spécifiques, ne redirige pas
+            if (!hasReferralOrUser(window.location.pathname)) {
+                if (langRedirects[langCode] && !startsWithLang(window.location.pathname)) {
+                    // Rediriger vers le dossier de langue approprié
+                    window.location.href = langRedirects[langCode];
+                } else if (!startsWithLang(window.location.pathname)) {
+                    // Redirection par défaut (anglais par exemple)
+                    window.location.href = '/en/';
+                }
+            }
         }
     </script>
 </head>
+
 <body>
     <h1>Redirection en cours...</h1>
 </body>
+
 </html>
