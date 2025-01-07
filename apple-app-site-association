@@ -6,7 +6,8 @@
               "appID": "7L8GMM3455.com.gavy.eiko",
               "paths": [
                   "/user/*",
-                  "/referral/*"
+                  "/referral/*",
+                  "/"
               ]
           }
       ]
