@@ -22,6 +22,20 @@ app.get('/apple-app-site-association', (req, res) => {
     });
 });
 
+app.get('/assetlinks', (req, res) => {
+    const filePath = path.join(__dirname, '.well-known', 'assetlinks.json');
+
+    fs.access(filePath, fs.constants.F_OK, (err) => {
+        if (err) {
+            console.error('Fichier assetlinks non trouvé:', err);
+            return res.status(404).send('Not Found');
+        }
+        console.log('Fichier assetlinks trouvé');
+        res.setHeader('Content-Type', 'application/json');
+        res.sendFile(filePath);
+    });
+});
+
 // Middleware pour détecter la langue à partir de l'en-tête 'Accept-Language'
 function detectLanguage(req) {
     const acceptLanguage = req.headers['accept-language'];
