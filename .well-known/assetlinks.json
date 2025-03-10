@@ -1,11 +1,15 @@
 [
   {
-    "relation": ["delegate_permission/common.handle_all_urls"],
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
     "target": {
       "namespace": "android_app",
       "package_name": "com.gavy.eiko",
-      "sha256_cert_fingerprints":
-        ["B4:60:4D:D8:96:48:C5:99:E8:D9:84:E9:49:6C:A8:20:69:5D:78:6D:2A:0A:C0:34:60:6A:2F:EC:38:CD:94:49"]
+      "sha256_cert_fingerprints": [
+        "B4:60:4D:D8:96:48:C5:99:E8:D9:84:E9:49:6C:A8:20:69:5D:78:6D:2A:0A:C0:34:60:6A:2F:EC:38:CD:94:49"
+      ]
     }
   }
 ]

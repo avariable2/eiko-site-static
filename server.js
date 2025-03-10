@@ -22,7 +22,8 @@ app.get('/apple-app-site-association', (req, res) => {
     });
 });
 
-app.get('/assetlinks', (req, res) => {
+// Route pour .well-known/assetlinks.json
+app.get('/.well-known/assetlinks.json', (req, res) => {
     const filePath = path.join(__dirname, '.well-known', 'assetlinks.json');
 
     fs.access(filePath, fs.constants.F_OK, (err) => {
