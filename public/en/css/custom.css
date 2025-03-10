@@ -1,3 +1,16 @@
+
+.toptitle{
+  margin-bottom: 20px;
+}
+
+.title{
+  height : 50px;
+}
+
+.ctafirst{
+  margin-top: 120px;
+}
+
 .share{
   position: absolute;
 }

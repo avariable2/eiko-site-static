@@ -1,59 +1,58 @@
 var TxtType = function(el, toRotate, period) {
-        this.toRotate = toRotate;
-        this.el = el;
-        this.loopNum = 0;
-        this.period = parseInt(period, 1) || 2000;
-        this.txt = '';
-        this.tick();
-        this.isDeleting = false;
-    };
+    this.toRotate = toRotate;
+    this.el = el;
+    this.loopNum = 0;
+    this.period = parseInt(period, 10) || 2000;
+    this.txt = '';
+    this.tick();
+    this.isDeleting = false;
+};
 
-    TxtType.prototype.tick = function() {
-        var i = this.loopNum % this.toRotate.length;
-        var fullTxt = this.toRotate[i];
+TxtType.prototype.tick = function() {
+    var i = this.loopNum % this.toRotate.length;
+    var fullTxt = this.toRotate[i];
 
-        if (this.isDeleting) {
-        this.txt = fullTxt.substring(0, this.txt.length - 1);
-        } else {
+    if (this.isDeleting) {
+        this.txt = ''; // Supprime tout d'un coup
+    } else {
         this.txt = fullTxt.substring(0, this.txt.length + 1);
-        }
+    }
 
-        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
-        this.el.innerHTML = '<span class="animtype">'+this.txt+'</span>';
+    this.el.innerHTML = '<span class="animtype">'+this.txt+'</span>';
 
-        var that = this;
-        var delta = 150 - Math.random() * 160;
+    var that = this;
+    var delta = 100 - Math.random() * 100;
 
-        if (this.isDeleting) { delta /= 3; }
+    if (this.isDeleting) {
+        delta = 500; // Temps avant la réécriture
+    }
 
-        if (!this.isDeleting && this.txt === fullTxt) {
+    if (!this.isDeleting && this.txt === fullTxt) {
         delta = this.period;
         this.isDeleting = true;
-        } else if (this.isDeleting && this.txt === '') {
+    } else if (this.isDeleting && this.txt === '') {
         this.isDeleting = false;
         this.loopNum++;
-        delta = 1500;
-        }
+        delta = 1000; // Pause avant de recommencer
+    }
 
-        setTimeout(function() {
+    setTimeout(function() {
         that.tick();
-        }, delta);
-    };
+    }, delta);
+};
 
-    window.onload = function() {
-        var elements = document.getElementsByClassName('typewrite');
-        for (var i=0; i<elements.length; i++) {
-            var toRotate = elements[i].getAttribute('data-type');
-            var period = elements[i].getAttribute('data-period');
-            if (toRotate) {
-              new TxtType(elements[i], JSON.parse(toRotate), period);
-            }
+window.onload = function() {
+    var elements = document.getElementsByClassName('typewrite');
+    for (var i = 0; i < elements.length; i++) {
+        var toRotate = elements[i].getAttribute('data-type');
+        var period = elements[i].getAttribute('data-period');
+        if (toRotate) {
+            new TxtType(elements[i], JSON.parse(toRotate), period);
         }
-        // INJECT CSS
-        var css = document.createElement("style");
-        css.type = "text/css";
-        css.innerHTML = ".typewrite > .animtype {border-right: 0.04em solid #fff;}"
- 
-
-        document.body.appendChild(css);
-    };
+    }
+    
+    var css = document.createElement("style");
+    css.type = "text/css";
+    css.innerHTML = ".typewrite > .animtype {border-right: 0.04em solid #fff;}";
+    document.body.appendChild(css);
+};
